@@ -1,0 +1,86 @@
+.fade-enter-active,
+.fade-leave-active {
+    opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+    transition: all .25s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.left-enter-active,
+.left-leave-active {
+    transition: all .2s cubic-bezier(0.55, 0, 0.1, 1);
+    transform: translateX(0);
+}
+
+.left-enter,
+.left-leave-to {
+    transform: translateX(-100%);
+}
+
+.right-leave-active,
+.right-enter-active {
+    transition: all .20s cubic-bezier(0.55, 0, 0.1, 1);
+    transform: translateX(0);
+}
+
+.right-leave-to,
+.right-enter {
+    transform: translateX(100%);
+}
+
+.top-enter-active,
+.top-leave-active {
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.top-enter,
+.top-leave-active {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.bottom-enter-active,
+.bottom-leave-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.bottom-enter,
+.bottom-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 2.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, #e54847 10%, transparent 10%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform 0.5s, opacity .5s;
+    }
+
+    &:active:after {
+        transform: scale(0, 0);
+        opacity: 0.2;
+        transition: 0s;
+    }
+}

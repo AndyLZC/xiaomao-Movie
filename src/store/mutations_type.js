@@ -1,0 +1,4 @@
+export const CHANGE_CITY = "CHANGE_CITY"
+export const SAVE_ADDRESS = "SAVE_ADDRESS"
+export const SAVE_FAVORITE = "SAVE_FAVORITE"
+export const SAVE_TICKEY = "SAVE_TICKEY"

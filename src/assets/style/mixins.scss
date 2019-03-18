@@ -1,0 +1,262 @@
+// 背景图片地址和大小
+@mixin bgi-full($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* 
+背景图片
+ */
+@mixin bgi($url, $w, $h, $x: 0, $y: 0) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $w, $h;
+    background-position: $x $y;
+}
+
+@mixin clamp($lines: 2) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+/* 单行文本溢出显示省略号
+   需要设置高度
+*/
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin no-scrollbar {
+    &::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        -webkit-appearance: none;
+        opacity: 0 !important;
+    }
+}
+
+//定位全屏
+@mixin allcover {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+//定位上下左右居中
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//定位左右居中
+@mixin cl {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+    font: #{$size}/#{$line-height} $family;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color) {
+    font-size: $size;
+    color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+    display: flex;
+    justify-content: $type;
+
+}
+
+//border设置
+@mixin line($type: up, $color: #e1e1e1, $scale: .5, $size: 100%) {
+    position: relative;
+
+    @if $type==up {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: $size;
+            height: 1px;
+            background-color: $color;
+            transform: scale(1, $scale);
+            transform-origin: center center;
+        }
+    }
+
+    @else if $type==down {
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: $size;
+            height: 1px;
+            background-color: $color;
+            transform: scale(1, $scale);
+            transform-origin: center center;
+        }
+    }
+
+    @else if $type==left {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: $size;
+            background-color: $color;
+            transform: scale($scale, 1);
+            transform-origin: center center;
+        }
+    }
+
+    @else if $type==right {
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 1px;
+            height: $size;
+            background-color: $color;
+            transform: scale($scale, 1);
+            transform-origin: center center;
+        }
+    }
+}
+
+/* 
+    1-px像素
+*/
+@mixin border-1px($poses, $color:#e8e8e8) {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+
+        @each $pos in $poses {
+            border-#{$pos}: .5px solid $color;
+        }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:1.5),
+(min-device-pixel-ratio: 1.5) {
+    .border-1px &::after {
+        -webkit-transform: scaleY(0.333333);
+        transform: scaleY(0.333333);
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-device-pixel-ratio: 2) {
+    .border-1px &::after {
+        -webkit-transform: scaleY(0.25); //像素比为2的时候，设置缩放为0.5
+        transform: scaleY(0.25);
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:3),
+(min-device-pixel-ratio: 3) {
+    .border-1px &::after {
+        -webkit-transform: scaleY(0.166667); //像素比为3的时候，设置缩放为0.33333
+        transform: scaleY(0.166667);
+    }
+}
+
+
+
+
+//小三角形
+@mixin triangle($type, $top, $left, $color, $size:0) {
+    position: relative;
+
+    @if $type==down {
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: $top;
+            left: $left;
+            border: $size solid transparent;
+            /*三角形宽30px 边框都为透明*/
+            border-top-color: $color;
+            /*顶部边框为红色*/
+            border-bottom: none;
+            /*底部去掉边框*/
+            //border-radius: $size;
+        }
+    }
+
+    @else if $type==up {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: $top;
+            left: $left;
+            border: $size solid transparent;
+            /*三角形宽30px 边框都为透明*/
+            border-bottom-color: $color;
+            /*顶部边框为红色*/
+            border-top: none;
+            /*顶部去掉边框*/
+            //border-radius: $size;
+        }
+    }
+}
+
+@mixin arrow($bottom, $left, $color, $size, $deg) {
+        &::after {
+            content: '';
+            position: absolute;
+            left: $left;
+            bottom: $bottom;
+            width: $size;
+            height: $size;
+            border-left: 2px solid $color;
+            border-top: 2px solid $color;
+            border-radius: 2px;
+            transform: rotate($deg);
+        }
+}
