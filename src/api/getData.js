@@ -3,7 +3,7 @@ import { Time } from "/common/util"
 
 /* 即将上映的电影 */
 export const getComingList = (ci) => {
-  return http.fetchGet(`/movie/ajax/ajax/comingList`, {
+  return http.fetchGet(`/movie/ajax/comingList`, {
     ci,
     token: '',
     limit: 10

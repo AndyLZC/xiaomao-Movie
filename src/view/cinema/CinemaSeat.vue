@@ -36,7 +36,7 @@
                                 :key="index"
                                 @click.stop="selectSeat(row.rowId, seat, index)"
                                 :class="['column',{'active': true}]"
-                                :style="{'background-image': `url(/xiaomao/img/${seat.st}.png)`}"
+                                :style="{'background-image': `url(/img/${seat.st}.png)`}"
                             ></li>
                         </ul>
                     </div>

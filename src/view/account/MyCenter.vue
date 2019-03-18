@@ -12,7 +12,8 @@
                 <icon-svg name="buy" width="20" height="20" class="icon"></icon-svg>购买记录
             </div>
             <div class="about-me">
-                <icon-svg name="about-me" width="20" height="20" class="icon"></icon-svg>关于项目
+                <icon-svg name="about-me" width="20" height="20" class="icon"></icon-svg>
+                <a href="https://juejin.im/post/5c8f43b7e51d4550534405f7">关于项目</a>
             </div>
         </div>
 
