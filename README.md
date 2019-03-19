@@ -121,10 +121,9 @@ npm run serve
 ### 最后..
 如果你觉得项目还可以，`github`给个`star`，或者“买”张电影票帮我续一天服务器的费用吧（手动点赞谢谢）✍
 
-如果觉得有问题，欢迎提出，我会虚心接受大家的意见。
-![](https://user-gold-cdn.xitu.io/2019/3/18/16990a40e6feea8f?w=754&h=943&f=jpeg&s=71694)
+<img src="https://user-gold-cdn.xitu.io/2019/3/18/16990a40e6feea8f?w=754&h=943&f=jpeg&s=71694" width="200px" height="200px">
 
-![](https://user-gold-cdn.xitu.io/2019/3/18/16990a43d07424a4?w=702&h=791&f=jpeg&s=87655)
+<img src="https://user-gold-cdn.xitu.io/2019/3/18/16990a43d07424a4?w=702&h=791&f=jpeg&s=87655" width="200px" height="200px">
 
 
 
