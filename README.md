@@ -6,10 +6,6 @@
 数据接口来源猫眼电影，项目不会被用于作商业用途。
 
 ## 效果演示
-[小猫电影](http://47.106.82.12:8081/xiaomao/#/movie)
-
-[gihub仓库地址](https://github.com/AndyLZC/webapp-maoyan/)
-
 ![](https://user-gold-cdn.xitu.io/2019/3/18/169906bbc51d25d6?w=307&h=552&f=gif&s=2467116)
 ![](https://user-gold-cdn.xitu.io/2019/3/18/1699059840c93241?w=307&h=552&f=gif&s=1099609)
 
